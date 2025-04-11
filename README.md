@@ -1,2 +1,2 @@
 # javascript-course
-Prácticas y ejerci
+Prácticas y ejercicios.
