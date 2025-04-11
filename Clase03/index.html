@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error-message{
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-group{
+            margin-bottom: 20px;
+        }
+
+        .form-group input{
+            display: block;
+            padding: 8px;
+            font-size: 16px;
+            width: 300px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Registro de clientes</h1>
+    <form id="registroCliente">
+        
+        <div class="form-group">
+            <label>Nombre: </label>
+            <input type="text" id="nombre" onkeyup="validarCampo(this, /^[A-Za-z\s]{4,}$/, 'errorNombre')">
+            <span id="errorNombre" class="error-message">Nombre inválido</span>
+        </div>
+
+        <div class="form-group">
+            <label>Documento de identificación: </label>
+            <input type="text" id="dni" onkeyup="validarCampo(this, /^(\d{8}|\d{4}-\d{4}-\d{4})$/, 'errorDni')">
+            <span id="errorDni" class="error-message">Dni inválido</span>
+        </div>
+
+        <div class="form-group">
+            <label>Edad: </label>
+            <input type="text" id="edad" onkeyup="validarCampo(this, /^(1[89]|[2-5][0-9]|60)$/, 'errorEdad')">
+            <span id="errorEdad" class="error-message">La edad debe ser entre 18 y 60 años</span>
+        </div>
+
+        <!--Correo--> utp.edu.pe o gmail.com
+        <!--Teléfono fijo--> +51-5780256
+
+    </form>
+
+    <script>
+        function validarCampo(input, regex, errorId){
+            const errorSpan=document.getElementById(errorId);
+            if(!regex.test(input.value)){
+                errorSpan.style.display='block';
+            } else {
+                errorSpan.style.display='none';
+            }
+        }
+    </script>
+</body>
+</html>
